@@ -99,4 +99,15 @@ public class workApiTest {
 //        System.out.println(pload);
     }
 
+    @Test
+    public void PutTest(){
+        Response r = given().body(new HashMap<String, Object>(){
+                        {
+                            put("name","Ankur");
+                            put("job","Engineer");
+                        }
+                        }).when().put("https://reqres.in/api/users/2");
+        System.out.println(r.asString());
+    }
+
 }
