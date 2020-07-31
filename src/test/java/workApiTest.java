@@ -110,4 +110,12 @@ public class workApiTest {
         System.out.println(r.asString());
     }
 
+    @Test
+    public void currencyConverterApiTest(){
+        Response r = given().headers("x-rapidapi-host", "currency-exchange.p.rapidapi.com", "x-rapidapi-key",
+                "7937d89c90msh7abf240c7c6f8e6p15c0fajsn1cbc5b4d0048").when().get("https://currency-exchange.p.rapidapi.com/listquotes");
+        System.out.println(r.asString());
+    }
+
+
 }
