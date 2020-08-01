@@ -117,5 +117,23 @@ public class workApiTest {
         System.out.println(r.asString());
     }
 
+    @Test
+    public void mortgagePaymentsTest(){
+        Response r = given().headers(new HashMap<String, Object>(){
+                        {
+                            put("x-rapidapi-host","shaisachs-mortgage-payments-v1.p.rapidapi.com");
+                            put("x-rapidapi-key","7937d89c90msh7abf240c7c6f8e6p15c0fajsn1cbc5b4d0048");
+                            put("useQueryString","true");
+                        }
+                    }).and().queryParams(new HashMap<String, Object>(){
+                        {
+                            put("price","10000");
+                            put("downPayment","200");
+                            put("interestRate","8");
+                        }
+                    }).when().get("https://shaisachs-mortgage-payments-v1.p.rapidapi.com/payments");
+        System.out.println(r.asString());
+    }
+
 
 }
