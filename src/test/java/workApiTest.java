@@ -135,5 +135,19 @@ public class workApiTest {
         System.out.println(r.asString());
     }
 
+    String jsonString = "{\n" +
+            "    \"name\": \"ankur\",\n" +
+            "    \"job\": \"Engineer \"\n" +
+            "}";
+    @Test
+    public void patchRequestTest(){
+        Response r = given()
+                     .baseUri("https://reqres.in/api/users/2")
+                     .contentType(ContentType.JSON)
+                     .body(jsonString)
+                     .when().patch();
+        System.out.println(r.asString());
+        Assert.assertEquals(r.statusCode(), 200);
+    }
 
 }
