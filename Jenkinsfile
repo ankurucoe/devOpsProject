@@ -1,6 +1,8 @@
 pipeline{
     agent any
-
+    tools {
+    maven 'mvn_macOS'
+    }
     stages{
         stage ('Compile Stage'){
             steps{
