@@ -18,12 +18,5 @@ pipeline{
                 }
             }
         }
-        stage ('Deployment Stage'){
-            steps{
-                withMaven(maven: 'mvn_macOS'){
-                     sh 'mvn deploy'
-                }
-            }
-        }
     }
 }
