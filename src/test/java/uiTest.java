@@ -23,13 +23,14 @@ public class uiTest {
         driver = new ChromeDriver(options);
         driver.get("https://www.cleartrip.com/");
     }
-    @Test
+    @Test(enabled = false)
     public void initialLogin() throws InterruptedException {
         driver.findElement(By.id("FromTag")).sendKeys("Hyd");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//ul[@id='ui-id-1']/li/a[contains(text(),'Hyderabad, IN')]")).click();
         driver.findElement(By.id("ToTag")).sendKeys("Del");
-        driver.findElement(By.xpath("//ul[@id='ui-id-2']/li/a[contains(text(),'New Delhi, IN')]")).click();
+        driver.findElement(By.xpath("//ul[@id='ui-id-" +
+                "+z2']/li/a[contains(text(),'New Delhi, IN')]")).click();
         driver.findElement(By.xpath("//input[@id='DepartDate']")).click();
         driver.findElement(By.xpath("//td[@class=' ui-datepicker-days-cell-over undefined selected']")).click();
         driver.findElement(By.id("SearchBtn")).click();
