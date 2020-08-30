@@ -21,9 +21,12 @@ pipeline{
     }
     post{
         always {
-            emailext body: 'A Test EMail',
-            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
-            subject: 'Test Mail'
+            emailext (
+            body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
+            subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
+            to: "speektoankur@gmail.com",
+            from: "sharmaankur3302@gmail.com"
+            )
         }
     }
 }
