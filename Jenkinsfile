@@ -23,7 +23,7 @@ pipeline{
         always {
             mail to: 'speektoankur@gmail.com',
             subject: "Status of Automation Project: ${currentBuild.fullDisplayName}",
-            body: "$(env.BUILD_URL) has result ${currentBuild.result}"
+            body: "\$(env.BUILD_URL) has result \${currentBuild.result}"
         }
     }
 }
