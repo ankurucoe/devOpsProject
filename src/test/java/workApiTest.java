@@ -28,6 +28,12 @@ public class workApiTest {
     static String token = "wRCLdXlTz9_eq2cit79lYW9x8WSzXSYEAc5h";
     private static RequestSpecification requestSpec;
     JsonPath jp;
+    // Sample expected data
+    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
+    String jsonString = "{\n" +
+            "    \"name\": \"ankur\",\n" +
+            "    \"job\": \"Engineer \"\n" +
+            "}";
 
     @BeforeClass
     public void setup() {
@@ -76,9 +82,6 @@ public class workApiTest {
 
     }
 
-    // Sample expected data
-    int[] arr = {7673, 7676, 7677, 7679, 7680, 7681, 7683, 7684, 7685, 7686, 11837, 11841, 11842, 11843, 11844, 11845, 11846, 11847, 11848, 11849};
-
     @Test
     public void jsonPathValidation() {
         Response res =
@@ -88,8 +91,8 @@ public class workApiTest {
                                 "Authorization", "Bearer " + token).when()
                         .get("/users");
         jp = JsonPath.from(res.asString()); // Converting Response to json path obj
-        List<String> jsonResponse = jp.get("result.id");
-        Assert.assertTrue(jsonResponse.size() == arr.length);
+        List<String> jsonResponse = jp.get("data.");
+        Assert.assertTrue(jsonResponse.size() >= arr.length);
         System.out.println(res.getHeaders()); // printing all headers
         System.out.println(res.statusLine()); // printing status line of response body
     }
@@ -143,11 +146,6 @@ public class workApiTest {
         }).when().get("https://shaisachs-mortgage-payments-v1.p.rapidapi.com/payments");
         System.out.println(r.asString());
     }
-
-    String jsonString = "{\n" +
-            "    \"name\": \"ankur\",\n" +
-            "    \"job\": \"Engineer \"\n" +
-            "}";
 
     @Test
     public void patchRequestTest() {
