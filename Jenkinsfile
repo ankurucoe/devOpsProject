@@ -21,9 +21,9 @@ pipeline{
     }
     post{
         always {
-            mail to: 'speektoankur@gmail.com',
-            subject: "Status of Automation Project: ${currentBuild.fullDisplayName}",
-            body: "\$(env.BUILD_URL) has result \${currentBuild.result}"
+            emailext body: 'A Test EMail',
+            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+            subject: 'Test Job Status'
         }
     }
 }
