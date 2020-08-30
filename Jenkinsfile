@@ -18,9 +18,6 @@ pipeline{
                 }
             }
         }
-        stage('Aggregate Report'){
-            build job: 'Aggregate_Results_Job'
-        }
     }
     post{
         always {
