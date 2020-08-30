@@ -22,7 +22,7 @@ pipeline{
     post{
         always {
             mail (
-            body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
+            body: ""<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>"",
             subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
             to: "speektoankur@gmail.com",
             from: "sharmaankur3302@gmail.com"
