@@ -25,6 +25,7 @@ pipeline{
             body: """Check console output at "${env.BUILD_URL}" for ${env.JOB_NAME}""",
             subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
             to: "speektoankur@gmail.com",
+            from: "Ankur@gmail.com"
             )
         }
     }

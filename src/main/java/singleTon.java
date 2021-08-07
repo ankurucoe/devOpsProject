@@ -4,6 +4,10 @@ public class singleTon extends Object{
 
     }
 
+    /**
+     *
+     * @return class instance
+     */
     public static singleTon getInstance(){
         if(instance == null){
             instance = new singleTon();

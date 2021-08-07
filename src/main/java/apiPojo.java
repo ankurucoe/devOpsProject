@@ -6,6 +6,14 @@ public class apiPojo {
     private String email;
     private String status;
 
+    /**
+     * Create api POJO Object
+     * @param first_name
+     * @param last_name
+     * @param gender
+     * @param email
+     * @param status
+     */
     public apiPojo(String first_name, String last_name, String gender, String email, String status) {
         this.first_name = first_name;
         this.last_name = last_name;
